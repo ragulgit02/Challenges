@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web-server-dev:
+    build: .
+    environment:
+      - ENV=DEV
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./golang/file-dev.txt:/app/file.txt
+      
+  web-server-prod:
+    build: .
+    environment:
+      - ENV=PROD
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./golang/file-prod.txt:/app/file.txt
